@@ -38,7 +38,7 @@ for msg in consumer:
         #print(metadata)                    #for checking purpose
         #print(First,Second,LastRefreshed,OutputSize,Timezone)      #for checking purpose
         keyss = tmp.keys()
-        First=First[0:20]
+        
         
     for f in keyss:
         sql = "Insert into Currency values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"

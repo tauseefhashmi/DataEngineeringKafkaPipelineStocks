@@ -30,19 +30,21 @@ for msg in consumer:
         LastRefreshed = metadata.get('3. Last Refreshed')
         OutputSize = metadata.get('4. Output Size')
         Timezone = metadata.get('5. Time Zone')
+        Time = metadata.get("tmp")
         Open = "1. open"
         High ="2. high"
         Low ="3. low"
         Close ="4. close"
         Volume ="5. volume"
-        #print(metadata)                    #for checking purpose
-        #print(First,Second,LastRefreshed,OutputSize,Timezone)      #for checking purpose
+        print(metadata)                    #for checking purpose
+        print(Information,Symbol,LastRefreshed,OutputSize,Timezone) #for checking purpose
+        #print(Time)
         keyss = tmp.keys()
-        
-        
+            
     for f in keyss:
-        sql = "Insert into Currency values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        val = (Information,Symbol,LastRefreshed,OutputSize,Timezone,tmp[f].get(Open),tmp[f].get(High),tmp[f].get(Low),tmp[f].get(Close),tmp[f].get(Volume))
+        sql = "Insert into Currency values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        val = (Information,Symbol,LastRefreshed,OutputSize,Timezone,f,tmp[f].get(Open),tmp[f].get(High),tmp[f].get(Low),tmp[f].get(Close),tmp[f].get(Volume))
         cursor.execute(sql, val)
         db.commit()
-        print("Inserted")                 #for checking whether the values are inserted into database MYSQL or not
+        #print("Inserted")                 #for checking whether the values are inserted into database MYSQL or not
+  
